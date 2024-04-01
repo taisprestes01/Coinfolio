@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coinfolio - Confira os preços das principais criptomoedas ao vivo, gráficos, capitalização de mercado e volume de negócios</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"></head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/logo.png" width="32" height="32" alt="Coinfolio logo">
+        Coinfolio
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link active" data-nav-link>HomePage</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>NTF</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>Criptomoedas</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>Tendências</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line linedsfdsf-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <a href="wallet.html" class="btn btn-outline">Wallet</a>
+
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- 
+        - #TREND
+      -->
+
+      <section class="section trend" aria-label="crypto trend" data-section>
+        <div class="container">
+
+          <div class="trend-tab">
+
+            <ul class="tab-nav">
+
+              <li>
+                <button class="tab-btn active">Crypto</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">DeFi</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">BSC</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">NFT</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Metaverse</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Polkadot</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Solana</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Opensea</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Makersplace</button>
+              </li>
+
+            </ul>
+
+            <ul class="tab-content">
+
+              <li>
+                <div class="trend-card">
+
+                  <div class="card-title-wrapper">
+                    <img src="./assets/images/coin-1.svg" width="24" height="24" alt="bitcoin logo">
+
+                    <a href="#" class="card-title">
+                      Bitcoin <span class="span">BTC/USD</span>
+                    </a>
+                  </div>
+
+                  <data class="card-value" value="46168.95">USD 46,168.95</data>
+
+                  <div class="card-analytics">
+                    <data class="current-price" value="36641.20">36,641.20</data>
+
+                    <div class="badge red">-0.79%</div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="trend-card active">
+
+                  <div class="card-title-wrapper">
+                    <img src="./assets/images/coin-2.svg" width="24" height="24" alt="ethereum logo">
+
+                    <a href="#" class="card-title">
+                      Ethereum <span class="span">ETH/USD</span>
+                    </a>
+                  </div>
+
+                  <data class="card-value" value="3480.04">USD 3,480.04</data>
+
+                  <div class="card-analytics">
+                    <data class="current-price" value="36641.20">36,641.20</data>
+
+                    <div class="badge green">+10.55%</div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="trend-card">
+
+                  <div class="card-title-wrapper">
+                    <img src="./assets/images/coin-3.svg" width="24" height="24" alt="tether logo">
+
+                    <a href="#" class="card-title">
+                      Tether <span class="span">USDT/USD</span>
+                    </a>
+                  </div>
+
+                  <data class="card-value" value="1.00">USD 1.00</data>
+
+                  <div class="card-analytics">
+                    <data class="current-price" value="36641.20">36,641.20</data>
+
+                    <div class="badge red">-0.01%</div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="trend-card">
+
+                  <div class="card-title-wrapper">
+                    <img src="./assets/images/coin-4.svg" width="24" height="24" alt="bnb logo">
+
+                    <a href="#" class="card-title">
+                      BNB <span class="span">BNB/USD</span>
+                    </a>
+                  </div>
+
+                  <data class="card-value" value="443.56">USD 443.56</data>
+
+                  <div class="card-analytics">
+                    <data class="current-price" value="36641.20">36,641.20</data>
+
+                    <div class="badge red">-1.24%</div>
+                  </div>
+
+                </div>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top" data-section>
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <img src="./assets/images/logo.png" width="70" height="70" alt="Coinfolio logo">
+          Coinfolio
+        </a>
+
+          <h2 class="footer-title">Contato 🤙</h2>
+
+          <a href="mailto:taisprestes01@gmail.com" class="footer-contact-link">taisprestes01@gmail.com</a>
+
+          <address class="footer-contact-link">
+            Belém Pará Brasil
+          </address>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Products</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Spot</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Inverse Perpetual</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">USDT Perpetual</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Exchange</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Launchpad</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Binance Pay</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Services</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Buy Crypto</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Markets</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Tranding Fee</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Affiliate Program</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Referral Program</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">API</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Support</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Bybit Learn</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Help Center</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">User Feedback</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Submit a request</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">API Documentation</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Trading Rules</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">About Us</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About Bybit</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Authenticity Check</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Careers</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Business Contacts</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Blog</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
