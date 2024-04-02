@@ -12,7 +12,7 @@ const addEventOnElem = function (elem, type, callback) {
       elem[i].addEventListener(type, callback);
     }
   } else {
-    elem.addEventListener(type, callback);
+    //elem.addEventListener(type, callback);
   }
 }
 
@@ -116,6 +116,7 @@ const scrollReveal = function () {
     }
   }
 }
+
 
 scrollReveal();
 
