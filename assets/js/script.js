@@ -180,20 +180,21 @@ function addCryptoToList(crypto) {
   var marketCapCell = document.createElement("td");
   marketCapCell.classList.add("table-data", "market-cap");
   marketCapCell.textContent = `$${crypto.market_cap}`;
-  row?.appendChild(marketCapCell);
+  row?.appendChild(marketCapCell);  
 
   // Adiciona gráfico de desempenho
   var chartCell = document.createElement("td");
+  var value = crypto.price_change_percentage_24h > 0 ? 1 : 2
   chartCell.classList.add("table-data");
-  chartCell.innerHTML = `<img src="./assets/images/chart-${tbody?.childElementCount + 1}.svg" width="100" height="40" alt="chart" class="chart">`;
+  chartCell.innerHTML = `<img src="./assets/images/chart-${value}.svg" width="100" height="40" alt="chart" class="chart">`;
   row?.appendChild(chartCell);
-
+  
   // Adiciona botão de negociação
   var tradeCell = document.createElement("td");
   tradeCell.classList.add("table-data");
   tradeCell.innerHTML = `<button class="btn btn-outline">Trade</button>`;
   row?.appendChild(tradeCell);
-
+  
   // Adiciona a linha preenchida à tabela
   tbody.appendChild(row);
 }
