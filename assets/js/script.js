@@ -12,7 +12,7 @@ const addEventOnElem = function (elem, type, callback) {
       elem[i].addEventListener(type, callback);
     }
   } else {
-    elem.addEventListener(type, callback);
+    //elem.addEventListener(type, callback);
   }
 }
 
@@ -116,7 +116,36 @@ const scrollReveal = function () {
     }
   }
 }
+async function fetchData() {
+  try {
+      const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd');
+      const data = await response.json();
+      return data;
+  } catch (error) {
+      console.error('Erro ao buscar dados da API:', error);
+      return null;
+  }
+}
 
+async function populateTable() {
+  const cryptoData = await fetchData();
+  if (cryptoData) {
+      const tableBody = document.getElementById('crypto-table-body');
+      cryptoData.forEach(crypto => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+              <td>${crypto.market_cap_rank}</td>
+              <td>${crypto.name}</td>
+              <td>$${crypto.current_price}</td>
+              <td>${crypto.price_change_percentage_24h}%</td>
+              <td>$${crypto.market_cap}</td>
+          `;
+          tableBody.appendChild(row);
+      });
+  }
+}
+
+populateTable();
 scrollReveal();
 
 addEventOnElem(window, "scroll", scrollReveal);
