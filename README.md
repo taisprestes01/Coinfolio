@@ -37,27 +37,8 @@ Get valuable information about your currencies and improve your traderss</h4>
   
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-$ git clone https://github.com/taisprestes01/cryptocurrency-wallet-generator
-
-# Install Node
-- https://nodejs.org/en
-
-# Go into the repository
-$ cd cryptocurrency-wallet-generator
-
-# Install dependencies
-$ npm install
-$ npm install bip39
-$ npm install bip32@2.0.6
-$ npm install bitcoinjs-lib
-
 # Run the app
-$ cd src
-$ node .\createWallet.js
+
 ```
 <details>
 <summary>Install Electrum</summary>
