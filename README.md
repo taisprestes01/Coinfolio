@@ -39,7 +39,7 @@ Get valuable information about your currencies and improve your traderss</h4>
 
 # Run the app
 
-```
+
 <details>
 <summary>Install Electrum</summary>
   https://electrum.org/#download
