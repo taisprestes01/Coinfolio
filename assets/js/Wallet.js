@@ -30,19 +30,14 @@ async function getBalance(currency) {
     }
 }
 
-async function exampleUsage() {
-    try {
-        const result = await getBalance('BTC');
-
-        if (result.success) {
-            console.log('Saldo:', result.balance);
-            console.log('Saldo disponível:', result.available);
-        } else {
-            console.error('Erro:', result.error);
-        }
-    } catch (error) {
-        console.error('Erro:', error);
+// Chame a função getBalance com a moeda desejada
+getBalance('BTC').then(result => {
+    if (result.success) {
+        console.log('Saldo:', result.balance);
+        console.log('Saldo disponível:', result.available);
+    } else {
+        console.error('Erro:', result.error);
     }
-}
-
-exampleUsage();
+}).catch(error => {
+    console.error('Erro:', error);
+});
