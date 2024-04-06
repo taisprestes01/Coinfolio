@@ -7,7 +7,7 @@
   <br>
   <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://github.com/taisprestes01/Coinfolio/assets/108246691/37a4d5e8-2b84-4d10-8bef-708c94e1b177" alt="Markdownify" width="200"></a>
   <br>
-  Coinfolio
+  Coinfolioo
   <br>
 </h1>
 
