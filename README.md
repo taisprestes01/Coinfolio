@@ -22,7 +22,6 @@ Get valuable information about your currencies and improve your traderss</h4>
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
   <a href="#wallet-created">Wallet created</a> •
   <a href="#support">Support</a> •
   <a href="#you-may-also-like">You may also like</a> 
