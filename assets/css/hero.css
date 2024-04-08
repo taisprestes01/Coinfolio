@@ -1,0 +1,11 @@
+.hero { padding-block: 150px 140px; }
+.hero-content { margin-block-end: 80px; }
+.hero-text{font-size:var(--fs-5);margin-block:25px 40px;}
+.about { background-color: var(--eerie-black-1); }
+.about-banner { margin-block-end: 40px; }
+.hero-text { --fs-5: 2rem; }
+.hero-banner{max-width:max-content;margin-inline:auto;}
+.hero .container{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;}
+.hero-content { margin-block-end: 0; }
+.hero .container { gap: 100px; }
+
