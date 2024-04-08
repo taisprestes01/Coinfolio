@@ -1,27 +1,5 @@
 'use strict';
 
-
-
-/**
- * add event on element
- */
-
-const addEventOnElem = function (elem, type, callback) {
-  if (elem.length > 1) {
-    for (let i = 0; i < elem.length; i++) {
-      elem[i].addEventListener(type, callback);
-    }
-  } else {
-    //elem.addEventListener(type, callback);
-  }
-}
-
-
-
-/**
- * navbar toggle
- */
-
 const navbar = document.querySelector("[data-navbar]");
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 const navToggler = document.querySelector("[data-nav-toggler]");
@@ -32,7 +10,7 @@ const toggleNavbar = function () {
   document.body.classList.toggle("active");
 }
 
-addEventOnElem(navToggler, "click", toggleNavbar);
+navToggler.addEventListener("click", toggleNavbar);
 
 const closeNavbar = function () {
   navbar.classList.remove("active");
@@ -40,13 +18,9 @@ const closeNavbar = function () {
   document.body.classList.remove("active");
 }
 
-addEventOnElem(navbarLinks, "click", closeNavbar);
-
-
-
-/**
- * header active
- */
+navbarLinks.forEach(link => {
+  link.addEventListener("click", closeNavbar);
+});
 
 const header = document.querySelector("[data-header]");
 
@@ -58,13 +32,7 @@ const activeHeader = function () {
   }
 }
 
-addEventOnElem(window, "scroll", activeHeader);
-
-
-
-/**
- * toggle active on add to fav
- */
+window.addEventListener("scroll", activeHeader);
 
 const addToFavBtns = document.querySelectorAll("[data-add-to-fav]");
 
@@ -72,38 +40,26 @@ const toggleActive = function () {
   this.classList.toggle("active");
 }
 
-addEventOnElem(addToFavBtns, "click", toggleActive);
-
-
-/**
- * market
- */
+addToFavBtns.forEach(btn => {
+  btn.addEventListener("click", toggleActive);
+});
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Seletor do elemento de link
   const link = document.querySelector('[data-nav-link]');
 
-  // Seletor da seção de destino
   const section = document.querySelector('.market');
 
-  // Adicionando evento de clique ao link
   link.addEventListener('click', function(event) {
-    event.preventDefault(); // Evita o comportamento padrão do link
+    event.preventDefault();
 
-    // Obtendo a posição vertical da seção
     const sectionPosition = section.offsetTop;
 
-    // Rolando a página até a posição da seção
     window.scrollTo({
       top: sectionPosition,
-      behavior: 'smooth' // Rolagem suave
+      behavior: 'smooth'
     });
   });
 });
-
-/**
- * scroll revreal effect
- */
 
 const sections = document.querySelectorAll("[data-section]");
 
@@ -117,7 +73,6 @@ const scrollReveal = function () {
   }
 }
 
-
 scrollReveal();
 
-addEventOnElem(window, "scroll", scrollReveal);
+window.addEventListener("scroll", scrollReveal);
