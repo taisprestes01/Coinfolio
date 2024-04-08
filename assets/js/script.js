@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', function() {
   const section = document.querySelector('.market');
 
   link.addEventListener('click', function(event) {
-    event.preventDefault(); // Evita o comportamento padrão do link
+    event.preventDefault();
 
     const sectionPosition = section.offsetTop;
 
     window.scrollTo({
       top: sectionPosition,
-      behavior: 'smooth' // Rolagem suave
+      behavior: 'smooth'
     });
   });
 });

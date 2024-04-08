@@ -18,7 +18,6 @@ function addCryptoToList(crypto) {
   var row = document.createElement("tr");
   row?.classList.add("table-row");
 
-  // Adiciona botão de favorito
   var favoriteCell = document.createElement("td");
   favoriteCell.classList.add("table-data");
   favoriteCell.innerHTML = `
