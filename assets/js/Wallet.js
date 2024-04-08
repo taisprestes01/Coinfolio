@@ -1,62 +1,48 @@
+// Importa a biblioteca
 const axios = require('axios');
-const readline = require('readline');
 
-// Função para obter entrada do usuário
-async function getUserInput(question) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+// Chaves de autenticação fornecidas pela TradeOgre
+const publicKey = '9300942edf59fa006a37c5fb31c657ba'; 
+const privateKey = '45b8134cdada0bf02aeb9bf0919417b7'; 
 
-    return new Promise((resolve) => {
-        rl.question(question, (answer) => {
-            rl.close();
-            resolve(answer);
-        });
-    });
-}
+// Função para obter o saldo da conta para uma determinada moeda
+async function getBalance(currency) {
+    const url = 'https://tradeogre.com/api/v1/account/balance'; // URL do endpoint da API
 
-async function getBalance() {
     try {
-        // Obter a moeda desejada do usuário
-        const currency = await getUserInput('Digite o código da moeda (ex: BTC): ');
+        // Faz uma solicitação POST para o endpoint da API TradeOgre
+        const response = await axios.post(url, {
+            currency: currency 
+        }, {
+            headers: {
+                
+                'Authorization': 'Basic ' + Buffer.from(publicKey + ':' + privateKey).toString('base64')
+            }
+        });
 
-        const endpoint = 'https://tradeogre.com/api/v1/account/balance';
-
-        const requestBody = {
-            currency: currency
-        };
-
-        const response = await axios.post(endpoint, requestBody);
-
-        if (response.data.success) {
-            return {
-                success: true,
-                balance: response.data.balance,
-                available: response.data.available
-            };
-        } else {
-            return {
-                success: false,
-                error: 'Erro ao obter saldo da moeda ' + currency
-            };
+        // Verifica se a solicitação foi bem-sucedida
+        if (!response.data.success) {
+            // Se a solicitação não foi bem-sucedida, lança um erro com a mensagem de erro da API
+            throw new Error('Erro ao obter saldo da conta: ' + response.data.error);
         }
+
+        // Retorna os dados de saldo da conta obtidos da resposta da API
+        return response.data;
     } catch (error) {
-        return {
-            success: false,
-            error: 'Erro de requisição: ' + error.message
-        };
+        // Captura e trata qualquer erro que ocorra durante a solicitação
+        console.error('Erro ao chamar o endpoint de saldo:', error);
+        throw error; // Lança o erro novamente para que seja tratado externamente
     }
 }
 
-// Chame a função getBalance e imprima o resultado
-getBalance().then(result => {
-    if (result.success) {
-        console.log('Saldo:', result.balance);
-        console.log('Saldo disponível:', result.available);
-    } else {
-        console.error('Erro:', result.error);
-    }
-}).catch(error => {
-    console.error('Erro:', error);
-});
+// Exemplo de uso da função getBalance
+const currency = 'BTC'; // Define a moeda desejada (substitua 'BTC' pela moeda desejada)
+getBalance(currency)
+    .then(balance => {
+        // Se a solicitação for bem-sucedida, imprime o saldo da conta no console
+        console.log('Saldo:', balance);
+    })
+    .catch(error => {
+        // Se ocorrer algum erro durante a solicitação, imprime o erro no console
+        console.error('Erro ao obter saldo:', error);
+    });
