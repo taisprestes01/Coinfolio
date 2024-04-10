@@ -30,7 +30,7 @@ Get valuable information about your currencies and improve your traderss</h4>
 
 ## Key Features
 
-* Track your portfolio, buy and sell
+* Track your portfolio, buy and selll
 * Get hourly updated data on best and worst currencies
 * Discover new currencies on the market daily
 * Discover the companies with the largest amounts of cryptocurrencies
