@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <script>
+            var NovoComponente = document.registerElement('header-component', {
+                prototype: Object.create(HTMLElement.prototype, {
+                    createdCallback: {
+                        value: function(){
+                          var
+                          link     = document.querySelector('link[rel=import]'),
+                          t        = link.import.querySelector('#tpl-loading'),
+                          clone    = document.importNode(t.content, true);
+                          element  = this,
+                          text     = this.getAttribute('text'),
+                          animates = clone.querySelectorAll('.load-anime div');
+                            clone.querySelector('.load-anime').classList.add("circle");
+                          clone.querySelector('.loading-text').innerHTML = text;
+                          element.createShadowRoot().appendChild(clone);
+                        }
+                    }
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <template id="tpl-loading">
+            <style>
+                .loading {
+                    height: auto;
+                    margin: 10px auto;
+                    text-align: center;
+                    width: auto;
+                }
+                .loading p {
+                    font-family: 'Arial';
+                    font-weight: bold;
+                }
+                .load-anime div{
+                  background: #FF5700;
+                  display: inline-block;
+                }
+                .circle{
+                  height: 10px;
+                }
+                .circle div {
+                  border-radius: 100%;
+                  display: inline-block;
+                  height: 10px;
+                  width: 10px;
+                  -webkit-animation: scale 1.2s infinite ease-in-out;
+                  animation: scale 1.2s infinite ease-in-out;
+                }
+                .load-anime .load-anime2 {
+                  -webkit-animation-delay: -1.1s;
+                  animation-delay: -1.1s;
+                }
+                .load-anime .load-anime3 {
+                  -webkit-animation-delay: -1.0s;
+                  animation-delay: -1.0s;
+                }
+                .load-anime .load-anime4 {
+                  -webkit-animation-delay: -0.9s;
+                  animation-delay: -0.9s;
+                }
+                .load-anime .load-anime5 {
+                  -webkit-animation-delay: -0.8s;
+                  animation-delay: -0.8s;
+                }
+                @-webkit-keyframes scale {
+                  0%, 40%, 100% { -webkit-transform: scale(0.4) }
+                  20% { -webkit-transform: scale(1.0) }
+                }
+                @keyframes scale {
+                  0%, 40%, 100% {
+                    transform: scale(0.4);
+                    -webkit-transform: scale(0.4);
+                  }  20% {
+                    transform: scale(1.0);
+                    -webkit-transform: scale(1.0);
+                  }
+                }
+            </style>
+            <div class="loading">
+              <div class="load-anime">
+                <div class="load-anime1"></div>
+                <div class="load-anime2"></div>
+                <div class="load-anime3"></div>
+                <div class="load-anime4"></div>
+                <div class="load-anime5"></div>
+              </div>
+              <p class="loading-text"></p>
+            </div>
+        </template>
+    </body>
+</html>
