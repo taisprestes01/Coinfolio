@@ -1,29 +1,53 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-// Função para obter o saldo da conta
-async function getBalance(apiKey, apiSecret, currency) { 
-    const url = "https://tradeogre.com/api/v1/account/balance";
-    const auth = `${apiKey}:${apiSecret}`; // Combinação de chave pública e privada para autenticação
+
+async function authenticatedRequest(url, apiKey, apiSecret, requestData) {
+    const auth = `${apiKey}:${apiSecret}`; 
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Basic ' + Buffer.from(auth).toString('base64') 
     };
-    const data = JSON.stringify({ currency });
 
     try {
         const response = await fetch(url, { 
             method: 'POST', 
             headers, 
-            body: data 
+            body: JSON.stringify(requestData) 
         });
 
-        if (!response.ok) { // Verificação de resposta bem-sucedida
-            throw new Error(`Falha ao obter saldo. Código de status: ${response.status}`); // Lança um erro em caso de falha
+        if (!response.ok) { 
+            throw new Error(`Falha na solicitação. Código de status: ${response.status}`);
         }
 
-        const balance = await response.json();
-        return balance; // Retorna o saldo obtido
-    } catch (error) { // Captura de erros
+        return await response.json(); 
+    } catch (error) { 
+        throw new Error(`Erro na solicitação: ${error.message}`);
+    }
+}
+
+
+async function getBalance(apiKey, apiSecret, currency) { 
+    const url = "https://tradeogre.com/api/v1/account/balance";
+    const requestData = { currency }; 
+
+    try {
+        
+        const balance = await authenticatedRequest(url, apiKey, apiSecret, requestData);
+        return balance; 
+    } catch (error) { 
         return { error: error.message };
     }
 }
+
+
+const apiKey = 'sua-chave-publica'; 
+const apiSecret = 'sua-chave-privada'; 
+const currency = 'BTC'; 
+
+getBalance(apiKey, apiSecret, currency)
+  .then(balance => {
+    console.log('Saldo:', balance);
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
