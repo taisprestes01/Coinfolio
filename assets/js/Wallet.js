@@ -1,62 +1,35 @@
-const axios = require('axios');
-const readline = require('readline');
+const express = require('express');
+const btoa = require('btoa');
+const app = express();
+const port = 3000;
 
-// Função para obter entrada do usuário
-async function getUserInput(question) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+const apiKeyPublic = '9300942edf59fa006a37c5fb31c657ba';
+const apiKeyPrivate = '45b8134cdada0bf02aeb9bf0919417b7';
+const currency = 'ZEPH'; 
 
-    return new Promise((resolve) => {
-        rl.question(question, (answer) => {
-            rl.close();
-            resolve(answer);
-        });
-    });
-}
+app.get('/balance', async (req, res) => {
+  const url = 'https://tradeogre.com/api/v1/account/balance';
+  const data = { currency: currency };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': `Basic ${btoa(apiKeyPublic + ':' + apiKeyPrivate)}`
+    },
+    body:'currency=' + currency
+  };
 
-async function getBalance() {
-    try {
-        // Obter a moeda desejada do usuário
-        const currency = await getUserInput('Digite o código da moeda (ex: BTC): ');
-
-        const endpoint = 'https://tradeogre.com/api/v1/account/balance';
-
-        const requestBody = {
-            currency: currency
-        };
-
-        const response = await axios.post(endpoint, requestBody);
-
-        if (response.data.success) {
-            return {
-                success: true,
-                balance: response.data.balance,
-                available: response.data.available
-            };
-        } else {
-            return {
-                success: false,
-                error: 'Erro ao obter saldo da moeda ' + currency
-            };
-        }
-    } catch (error) {
-        return {
-            success: false,
-            error: 'Erro de requisição: ' + error.message
-        };
-    }
-}
-
-// Chame a função getBalance e imprima o resultado
-getBalance().then(result => {
-    if (result.success) {
-        console.log('Saldo:', result.balance);
-        console.log('Saldo disponível:', result.available);
-    } else {
-        console.error('Erro:', result.error);
-    }
-}).catch(error => {
-    console.error('Erro:', error);
+  try {
+    const fetch = await import('node-fetch');
+    const response = await fetch.default(url, options);
+    const responseData = await response.json();
+    res.json(responseData);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
 });
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
+body:'currency=' + currency
