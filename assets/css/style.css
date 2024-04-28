@@ -147,9 +147,10 @@ body.active { overflow: hidden; }
 .hero-content { margin-block-end: 0; }
 .hero .container { gap: 100px; }
 
+.trend-margin-block {margin-block-start: -160px; }
 .trend-tab .tab-content { grid-template-columns: repeat(4, 1fr); }
 .trend { background-color: var(--eerie-black-1); padding-block-end: 0; }
-.trend-tab { background-color: var(--eerie-black-2); border: 1px solid var(--raisin-black); border-radius: var(--radius-24); padding: 20px; box-shadow: var(--shadow-2); margin-block-start: -160px; }
+.trend-tab { background-color: var(--eerie-black-2); border: 1px solid var(--raisin-black); border-radius: var(--radius-24); padding: 20px; box-shadow: var(--shadow-2);}
 .trend-tab .tab-nav { display: flex; flex-wrap: wrap; padding-block-end: 20px; margin-block-end: 20px; border-block-end: 1px solid var(--raisin-black); }
 .trend-tab .tab-btn { color: var(--white); font-size: var(--fs-7); font-weight: var(--fw-700); padding: 7px 15px; border-radius: 50px; transition: var(--transition-1); }
 .trend-tab .tab-btn.active { background-color: var(--blue-crayola); }
@@ -199,6 +200,7 @@ body.active { overflow: hidden; }
 .market-table .btn-outline{border-width:2px;padding-inline:10px;}
 .market-table .btn-outline:is(:hover, :focus) { background-color: var(--blue-crayola); border-color: var(--blue-crayola); }
 .market-tab { padding-block-end: 0; }
+
 
 .footer-top { background-color: var(--eerie-black-1); padding-block: 80px 50px; }
 .footer-top .container { display: grid; gap: 50px; }
