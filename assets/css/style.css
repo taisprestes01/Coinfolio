@@ -222,3 +222,31 @@ address.footer-contact-link { max-width: 30ch; }
 .footer-top { padding-block: 100px 90px; }
 .footer-top .container { grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.5fr; }
 .footer-brand { grid-column: auto; }
+
+
+
+#teste1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+
+#teste1 button {
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  border: 1.3px solid white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#teste1 button:hover {
+  background-color: #e16709;
+}
